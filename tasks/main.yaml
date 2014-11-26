@@ -1,0 +1,7 @@
+---
+
+- name: Create udev rules file
+  template:
+    src: rules.j2
+    dest: /etc/udev/rules.d/70-persistent-net.rules
+  when: udev_rename_netiface_enabled == true

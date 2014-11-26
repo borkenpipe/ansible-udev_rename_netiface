@@ -1,0 +1,12 @@
+---
+
+# Default value whether to enable this role or not
+udev_rename_netiface_enabled: true
+
+# Data scructure used by the 'network_interface' role with the difference that
+# only the 'device' and the 'hwaddr' params are required.
+network_ether_interfaces: []
+
+# This variable specifies whether to clear the udev rules or not. It can be used
+# when udev rename rules are anymore required.
+udev_rename_netiface_clear: false
