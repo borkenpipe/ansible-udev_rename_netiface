@@ -1,5 +1,11 @@
 ---
 
+- name: Test distribution
+  assert:
+    that: >
+      ansible_os_family == "RedHat" or
+      ansible_os_family == "Debian"
+
 - name: Create udev rules file
   template:
     src: rules.j2
