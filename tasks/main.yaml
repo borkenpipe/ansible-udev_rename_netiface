@@ -16,3 +16,6 @@
   tags:
     - udev_rename_netiface_config
   become: yes
+
+- include: tasks/interfaces.yml
+
