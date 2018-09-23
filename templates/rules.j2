@@ -17,6 +17,17 @@
       {%- endif %}
     {%- endfor %}
   {%- endif %}
+  {%- if network_ether_interfaces2 is defined %}
+    {#- This will generate udev rules for those devices having hwadd defined #}
+    {%- for item in network_ether_interfaces2 %}
+      {%- if 'hwaddr' in item.keys() %}
+        {%- if vars.update({'print_nl': True}) %}{% endif -%}
+        SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="{{ item.hwaddr | lower }}", NAME="{{ item.device }}"{{ "\n" }}
+      {%- else %}
+        {%- if vars.update({'missing_hwaddr': True}) %}{% endif -%}
+      {%- endif %}
+    {%- endfor %}
+  {%- endif %}
 
   {%- if network_ether_interfaces is not defined or vars.missing_hwaddr %}
     {%- if vars.print_nl -%}
