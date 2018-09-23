@@ -5,6 +5,7 @@
     that: >
       ansible_os_family == "RedHat" or
       ansible_os_family == "Debian"
+  become: yes
 
 - name: Create udev rules file
   template:
@@ -14,3 +15,4 @@
   when: udev_rename_netiface_enabled == true
   tags:
     - udev_rename_netiface_config
+  become: yes
