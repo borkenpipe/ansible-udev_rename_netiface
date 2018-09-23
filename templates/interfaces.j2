@@ -12,5 +12,10 @@ auto {{ primary_interface }}
 iface {{ primary_interface }} inet dhcp
 # The secondary network interface
 auto {{ secondary_interface }}
-iface {{ secondary_interface }} inet dhcp
+iface {{ secondary_interface }} inet static
+  address {{ secondary_interface_ip }}
+  netmask {{ secondary_interface_nm }}
+  gateway {{ secondary_interface_gw }}
+  dns-nameservers {{ dns_server }}
+  pre-up sleep 2
 
