@@ -19,14 +19,3 @@
 
 - include_tasks: tasks/interfaces.yml
 
-- name: Copy interfaces template over
-  template:
-    src: interfaces.j2
-    dest: /etc/network/interfaces
-    owner: root
-    group: root
-    mode: 0644
-    backup: yes
-  become: "yes"
-  become_method: sudo
-
