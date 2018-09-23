@@ -11,4 +11,6 @@ iface lo inet loopback
 auto {{ primary_interface }}
 iface {{ primary_interface }} inet dhcp
 # The secondary network interface
+auto {{ secondary_interface }}
+iface {{ secondary_interface }} inet dhcp
 
